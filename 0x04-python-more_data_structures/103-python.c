@@ -1,4 +1,10 @@
 #include <Python.h>
+/**
+ * print_python_list - Prints list information
+ * @p: Python Object
+ * Return: no return
+ */
+
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t size = PyList_Size(p);
@@ -17,6 +23,11 @@ void print_python_list(PyObject *p)
 	}
 }
 
+/**
+ * print_python_bytes - Prints bytes information
+ * @p: Python Object
+ * Return: no return
+ */
 void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size;
