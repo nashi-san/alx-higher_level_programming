@@ -9,16 +9,16 @@ void print_python_bytes(PyObject *p)
         Py_ssize_t size, i;
         char *str;
 
-        printf("[.] bytes object info\n");
         if (!PyBytes_Check(p))
         {
                 printf("  [ERROR] Invalid Bytes Object\n");
                 return;
         }
-        size = PyBytes_GET_SIZE(p);                                                                                                                                     str = PyBytes_AS_STRING(p);
-        printf("  size: %ld\n", size);
+        size = ((PyVarObject *)(p))->ob_size;
+	str = ((PyBytesObject *)p)->ob_sval;
+	printf("  size: %ld\n", size);
         printf("  trying string: %s\n", str);
-        if (size > 10)
+        if (size >= 10)
                 size = 10;
         printf("  first %ld bytes: ", size);
         for (i = 0; i < size; i++)
