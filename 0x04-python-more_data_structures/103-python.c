@@ -6,29 +6,29 @@
  */
 void print_python_bytes(PyObject *p)
 {
-        Py_ssize_t size, i;
-        char *str;
+	Py_ssize_t size, i;
+	char *str;
 
-        if (!PyBytes_Check(p))
-        {
-                printf("  [ERROR] Invalid Bytes Object\n");
-                return;
-        }
-        size = ((PyVarObject *)(p))->ob_size;
+	if (!PyBytes_Check(p))
+	{
+		printf("  [ERROR] Invalid Bytes Object\n");
+		return;
+	}
+	size = ((PyVarObject *)(p))->ob_size;
 	str = ((PyBytesObject *)p)->ob_sval;
 	printf("  size: %ld\n", size);
-        printf("  trying string: %s\n", str);
-        if (size >= 10)
-                size = 10;
-        printf("  first %ld bytes: ", size);
-        for (i = 0; i < size; i++)
-        {
-                printf("%02hhx", str[i]);
-                if (i == size - 1)
-                        printf("\n");
-                else
-                        printf(" ");
-        }
+	printf("  trying string: %s\n", str);
+	if (size >= 10)
+		size = 10;
+	printf("  first %ld bytes: ", size);
+	for (i = 0; i < size; i++)
+	{
+		if(str[i] >=0)
+			printf("%02x", str[i]);
+		else
+			printf(" %02x", 256 + str[i]);
+	}
+	printf("\n");
 }
 /**
  * print_python_list - Prints list information
