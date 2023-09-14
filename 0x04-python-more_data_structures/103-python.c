@@ -6,7 +6,7 @@
  */
 void print_python_bytes(PyObject *p)
 {
-	long int size, i;
+	Py_ssize_t size, i;
 	char *str;
 
 	printf("[.] bytes object info\n");
@@ -40,7 +40,7 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_list(PyObject *p)
 {
-	long int size, i;
+	Py_ssize_t size, i;
 	PyObject *item;
 
 	size = ((PyVarObject *)(p))->ob_size;
