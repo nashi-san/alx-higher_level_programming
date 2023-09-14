@@ -23,7 +23,7 @@ void print_python_bytes(PyObject *p)
 		size = 10;
 	else
 		size++;
-	printf("  first %ld bytes: ", size);
+	printf("  first %ld bytes:", size);
 	for (i = 0; i < size; i++)
 	{
 		if (str[i] >= 0)
