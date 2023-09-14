@@ -20,6 +20,8 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", str);
 	if (size >= 10)
 		size = 10;
+	else
+		size++;
 	printf("  first %ld bytes: ", size);
 	for (i = 0; i < size; i++)
 	{
