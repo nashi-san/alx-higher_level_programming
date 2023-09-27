@@ -59,6 +59,7 @@ class Square:
             for _ in range(self.size):
                 print(" " * self.position[0], end="")
                 print("#" * self.size)
+
     def __str__(self):
         """
         Prints the square using the '#' character and returns an empty string.
