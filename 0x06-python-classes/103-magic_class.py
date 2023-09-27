@@ -18,7 +18,7 @@ class MagicClass:
            circumference of the circle.
     """
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """
         Initializes a MagicClass instance with the given radius.
 
