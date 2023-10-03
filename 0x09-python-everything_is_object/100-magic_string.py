@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 def magic_string():
-    return ', '.join(['BestSchool'] * (i+1))
+    magic_string.iter = getattr(magic_string, 'iter', 0) + 1
+    return ", ".join(["BestSchool" for i in range(magic_string.iter)])
