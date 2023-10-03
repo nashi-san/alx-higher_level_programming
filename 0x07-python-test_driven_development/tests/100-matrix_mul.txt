@@ -1,0 +1,20 @@
+The ``matrix_mul`` module
+============================
+
+Using ``matrix_mul``
+------------------------
+
+This is an example text file in reStructuredText format.
+
+First import `matrix_mul` from the `matrix_mul` module:
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now use it:
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+[[58, 64], [139, 154]]
+
+>>> matrix_mul([[1, 2], [3, 4]], [[5, 6, 7], [8, 9, 10]])
+[[21, 24, 27], [47, 54, 61]]
+
+>>> matrix_mul([[1, 2, 3]], [[4], [5], [6]])
+[[32]]
