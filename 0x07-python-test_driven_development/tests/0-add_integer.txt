@@ -33,5 +33,3 @@ Now use it:
 
 >>> add_integer(-99.9, 99)
 0
-
-
