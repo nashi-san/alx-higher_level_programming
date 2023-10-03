@@ -1,0 +1,20 @@
+The ``add`` module
+======================
+
+Using ``add_integer``
+---------------------
+
+This is an example text file in reStructuredText format.
+
+First import ``add_integer`` from the ``add integer`` module:
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+>>> add_integer(6)
+104
+
+>>> add_integer(6, 2)
+8
+
+>>> add_integer(3.5, 2.5)
+6
