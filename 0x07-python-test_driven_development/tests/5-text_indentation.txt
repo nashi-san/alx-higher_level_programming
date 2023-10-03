@@ -1,0 +1,32 @@
+The ``text_indentation`` module
+============================
+
+Using ``text_indentation``
+------------------------
+
+This is an example text file in reStructuredText format.
+
+First import `text_indentation` from the `text_indentation` module:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Now use it:
+>>> text_indentation("Hello. How are you?")
+Hello.
+<BLANKLINE>
+How are you?
+
+>>> text_indentation("This is a test: it should work.")
+This is a test:
+<BLANKLINE>
+it should work.
+
+>>> text_indentation("No punctuation marks in this text")
+No punctuation marks in this text
+
+>>> text_indentation("Another test? Yes, it is!")
+Another test?
+<BLANKLINE>
+Yes, it is!
+
+>>> text_indentation("   Leading and trailing spaces should be removed.    ")
+Leading and trailing spaces should be removed.
