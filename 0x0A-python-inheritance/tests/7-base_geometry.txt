@@ -28,3 +28,6 @@ Traceback (most recent call last):
 	...
 ValueError: side must be greater than 0
 
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator("width", 5)
+
