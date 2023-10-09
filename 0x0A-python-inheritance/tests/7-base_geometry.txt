@@ -39,3 +39,7 @@ TypeError: area() takes 1 positional argument but 2 were given
 >>> type(geometry)
 <class '7-base_geometry.BaseGeometry'>
 
+>>> geometry.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
