@@ -54,3 +54,18 @@ Now use it:
 Traceback (most recent call last):
 	...
 TypeError: '<' not supported between instances of 'str' and 'int'
+
+>>> my_list = MyList()
+>>> my_list.append(10)
+>>> my_list
+[10]
+
+>>> my_list.append(0)
+>>> my_list.append(0)
+>>> print(my_list)
+[10, 0, 0]
+
+>>> my_list.print_sorted()
+[0, 0, 10]
+
+
