@@ -61,11 +61,11 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 [10]
 
 >>> my_list.append(0)
->>> my_list.append(0)
+>>> my_list.append(-10)
 >>> print(my_list)
-[10, 0, 0]
+[10, 0, -10]
 
 >>> my_list.print_sorted()
-[0, 0, 10]
+[-10, 0, 10]
 
 
