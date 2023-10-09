@@ -47,6 +47,10 @@ TypeError: integer_validator() missing 2 required positional arguments: 'name' a
 Traceback (most recent call last):
 TypeError: alx must be an integer
 
+>>> geometry.integer_validator("alx", "school")
+Traceback (most recent call last):
+TypeError: alx must be an integer
+
 >>> geometry.integer_validator(13, 13, 13)
 Traceback (most recent call last):
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
