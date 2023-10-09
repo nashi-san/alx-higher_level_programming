@@ -44,3 +44,13 @@ Now use it:
 >>> print(my_list)
 [-90]
 
+>>> my_list = MyList()
+>>> my_list.append(13)
+>>> my_list.append("a")
+>>> my_list
+[13, 'a']
+
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+	...
+TypeError: '<' not supported between instances of 'str' and 'int'
