@@ -31,3 +31,6 @@ ValueError: side must be greater than 0
 >>> geometry = BaseGeometry()
 >>> geometry.integer_validator("width", 5)
 
+>>> geometry.area(10)
+Traceback (most recent call last):
+TypeError: area() takes 1 positional argument but 2 were given
