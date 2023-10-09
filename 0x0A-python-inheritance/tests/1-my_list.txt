@@ -7,7 +7,7 @@ Using ``MyList``
 This is an example text file in reStructuredText format.
 First import ``MyList`` from the ``1-my_list`` module:
 
->>> MyList = __import__("1-my_list").MyList
+	>>> MyList = __import__("1-my_list").MyList
 
 Now use it:
 >>> MyList = __import__('1-my_list').MyList
