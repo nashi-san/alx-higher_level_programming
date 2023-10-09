@@ -39,6 +39,7 @@ ValueError: width must be greater than 0
 
 >>> geometry.area(1)
 Traceback (most recent call last):
+	...
 TypeError: area() takes 1 positional argument but 2 were given
 
 >>> geometry = BaseGeometry()
@@ -51,10 +52,12 @@ TypeError: integer_validator() missing 2 required positional arguments: 'name' a
 
 >>> geometry.integer_validator("alx", 13.2)
 Traceback (most recent call last):
+	...
 TypeError: alx must be an integer
 
 
 >>> geometry.integer_validator(13, 13, 13)
 Traceback (most recent call last):
+	...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
