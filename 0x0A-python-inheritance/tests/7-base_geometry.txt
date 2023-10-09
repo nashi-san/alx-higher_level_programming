@@ -1,0 +1,30 @@
+The ``Base Geometry`` module
+================================
+
+Using ``BaseGeometry``
+----------------
+
+This is an example text file in reStructuredText format.
+First import ``BaseGeometry`` from the ``7-base_geometry'`` module:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Now use it:
+>>> geo = BaseGeometry()
+>>> geo.area()
+Traceback (most recent call last):
+	...
+Exception: area() is not implemented
+
+>>> geo = BaseGeometry()
+>>> geo.integer_validator("width", 10)
+>>> geo.integer_validator("height", "invalid")
+Traceback (most recent call last):
+	...
+TypeError: height must be an integer
+
+>>> geo.integer_validator("side", 0)
+Traceback (most recent call last):
+	...
+ValueError: side must be greater than 0
+
