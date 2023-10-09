@@ -32,3 +32,15 @@ Now use it:
 
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
+>>> my_list = MyList()
+>>> my_list.append(-90)
+>>> print(my_list)
+[-90]
+
+>>> my_list.print_sorted()
+[-90]
+
+>>> print(my_list)
+[-90]
+
