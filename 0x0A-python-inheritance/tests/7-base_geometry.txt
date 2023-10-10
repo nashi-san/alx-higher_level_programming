@@ -73,3 +73,9 @@ TypeError: integer_validator() takes 3 positional arguments but 4 were given
 Traceback (most recent call last):
 	...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> geo = BaseGeometry()
+>>> geo.integer_validator(True, 3.14)
+Traceback (most recent call last):
+	...
+TypeError: True must be an integer
