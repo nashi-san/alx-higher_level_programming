@@ -65,3 +65,9 @@ Traceback (most recent call last):
 	...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
+>>> 'area' in dir(BaseGeometry)
+True
+
+>>> 'integer_validator' in dir(BaseGeometry)
+True
+
