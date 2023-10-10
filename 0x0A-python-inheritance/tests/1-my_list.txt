@@ -68,8 +68,8 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 >>> my_list.print_sorted()
 [-10, 0, 10]
 
->>> mlist = [9, 5, 12]
+>>> mlist = []
 >>> my_list = MyList(mlist)
 >>> my_list.print_sorted()
-[5, 9, 12]
+[]
 
