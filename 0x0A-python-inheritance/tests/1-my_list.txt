@@ -68,7 +68,8 @@ TypeError: '<' not supported between instances of 'str' and 'int'
 >>> my_list.print_sorted()
 [-10, 0, 10]
 
->>> my_list2.print_sorted()
-Traceback (most recent call last):
-        ...
-NameError: name 'my_list2' is not defined
+>>> mlist = [9, 5, 12]
+>>> my_list = MyList(mlist)
+>>> my_list.print_sorted()
+[5, 9, 12]
+
