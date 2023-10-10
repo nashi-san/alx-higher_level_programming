@@ -41,6 +41,7 @@ Traceback (most recent call last):
         ...
 ValueError: width must be greater than 0
 
+>>> geo = BaseGeometry()
 >>> geo.area(1)
 Traceback (most recent call last):
 	...
@@ -50,24 +51,25 @@ TypeError: area() takes 1 positional argument but 2 were given
 >>> type(geo)
 <class '7-base_geometry.BaseGeometry'>
 
+>>> geo = BaseGeometry()
 >>> geo.integer_validator()
 Traceback (most recent call last):
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
+>>> geo = BaseGeometry()
 >>> geo.integer_validator("alx", 13.2)
 Traceback (most recent call last):
 	...
 TypeError: alx must be an integer
 
-
+>>> geo = BaseGeometry()
 >>> geo.integer_validator(13, 13, 13)
 Traceback (most recent call last):
 	...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
->>> 'area' in dir(BaseGeometry)
-True
-
->>> 'integer_validator' in dir(BaseGeometry)
-True
-
+>>> geo = BaseGeometry()
+>>> geo.integer_validator(1)
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
