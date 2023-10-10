@@ -99,7 +99,7 @@ Traceback (most recent call last):
 TypeError: height must be an integer
 
 >>> geo = BaseGeometry()
->>> geo.integer_validator("height", (3))
+>>> geo.integer_validator("height", 3.0)
 Traceback (most recent call last):
         ...
 TypeError: height must be an integer
