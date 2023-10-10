@@ -75,6 +75,8 @@ Traceback (most recent call last):
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 >>> geo = BaseGeometry()
->>> geo.integer_validator(None, 3)
-
+>>> geo.integer_validator("height", None)
+Traceback (most recent call last):
+        ...
+TypeError: height must be an integer
 
