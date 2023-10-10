@@ -80,3 +80,8 @@ Traceback (most recent call last):
         ...
 TypeError: height must be an integer
 
+>>> geo = BaseGeometry()
+>>> geo.integer_validator("height", False)
+Traceback (most recent call last):
+        ...
+TypeError: height must be an integer
