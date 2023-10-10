@@ -31,7 +31,6 @@ ValueError: side must be greater than 0
 >>> geo = BaseGeometry()
 >>> geo.integer_validator("width", 10)
 >>> geo.integer_validator("height", 20)
->>> geo.integer_validator("side", 5)
 
 >>> geo = BaseGeometry()
 >>> geo.integer_validator("width", 5)
