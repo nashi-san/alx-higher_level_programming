@@ -13,10 +13,10 @@ def append_after(filename="", search_string="", new_string=""):
     lines = []
     with open(filename, 'r') as file:
         for line in file:
-            line = line.rstrip()
-            lines.append(line)
+            lines.append(line.rstrip())
             if search_string in line:
                 lines.append(new_string.rstrip())
 
     with open(filename, 'w') as file:
-        file.write('\n'.join(lines))
+        for line in lines:
+            file.write(line + '\n')
