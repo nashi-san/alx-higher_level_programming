@@ -3,6 +3,7 @@
 Module: base
 Contains the Base class.
 """
+import os
 import json
 import csv
 
@@ -120,26 +121,31 @@ class Base:
         """
 
         filename = cls.__name__ + ".csv"
-        instances = []
-        try:
-            with open(filename, "r") as file:
-                reader = csv.reader(file)
-                for row in reader:
-                    if cls.__name__ == "Rectangle":
-                        id = int(row[0])
-                        width = int(row[1])
-                        height = int(row[2])
-                        x = int(row[3])
-                        y = int(row[4])
-                        instance = cls(id, width, height, x, y)
-                    elif cls.__name__ == "Square":
-                        id = int(row[0])
-                        size = int(row[1])
-                        x = int(row[2])
-                        y = int(row[3])
-                        instance = cls(id, size, x, y)
-                    instances.append(instance)
-        except FileNotFoundError:
+        if not os.path.exists(filename):
             return []
+
+        instances = []
+        with open(filename, "r") as file:
+            reader = csv.reader(file)
+            csv_list = list(reader)
+
+            for csv_elem in csv_list:
+                if cls.__name__ == "Rectangle":
+                    instance = cls.create(
+                        id=int(csv_elem[0]),
+                        width=int(csv_elem[1]),
+                        height=int(csv_elem[2]),
+                        x=int(csv_elem[3]),
+                        y=int(csv_elem[4])
+                    )
+                elif cls.__name__ == "Square":
+                    instance = cls.create(
+                        id=int(csv_elem[0]),
+                        size=int(csv_elem[1]),
+                        x=int(csv_elem[2]),
+                        y=int(csv_elem[3])
+                    )
+
+                instances.append(instance)
 
         return instances
