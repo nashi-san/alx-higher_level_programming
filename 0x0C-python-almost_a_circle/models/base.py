@@ -4,6 +4,7 @@ Module: base
 Contains the Base class.
 """
 import json
+import csv
 
 
 class Base:
@@ -135,3 +136,67 @@ class Base:
 
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances from a file.
+        """
+
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as file:
+                json_string = file.read()
+                json_list = cls.from_json_string(json_string)
+                instances = [cls.create(**data) for data in json_list]
+                return instances
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes and saves instances to a CSV file.
+        """
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as file:
+            writer = csv.writer(file)
+            if cls.__name__ == "Rectangle":
+                for obj in list_objs:
+                    row_data = [obj.id, obj.width, obj.height, obj.x, obj.y]
+                    writer.writerow(row_data)
+            elif cls.__name__ == "Square":
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes and returns instances from a CSV file.
+        """
+
+        filename = cls.__name__ + ".csv"
+        instances = []
+        try:
+            with open(filename, "r") as file:
+                reader = csv.reader(file)
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        id = int(row[0])
+                        width = int(row[1])
+                        height = int(row[2])
+                        x = int(row[3])
+                        y = int(row[4])
+                        instance = cls(id, width, height, x, y)
+                    elif cls.__name__ == "Square":
+                        id = int(row[0])
+                        size = int(row[1])
+                        x = int(row[2])
+                        y = int(row[3])
+                        instance = cls(id, size, x, y)
+                    instances.append(instance)
+        except FileNotFoundError:
+            return []
+
+        return instances
