@@ -97,63 +97,6 @@ class Base:
             return []
 
     @classmethod
-    def save_to_file(cls, list_objs):
-        """
-        Writes the JSON string representation of list_objs to a file.
-        """
-
-        filename = cls.__name__ + ".json"
-        if list_objs is None:
-            list_objs = []
-        json_list = [obj.to_dictionary() for obj in list_objs]
-        json_string = cls.to_json_string(json_list)
-        with open(filename, "w") as file:
-            file.write(json_string)
-
-    @staticmethod
-    def from_json_string(json_string):
-        """
-        Returns the list represented by the JSON string representation.
-        """
-
-        if json_string is None or json_string == "":
-            return []
-
-        return json.loads(json_string)
-
-    @classmethod
-    def create(cls, **dictionary):
-        """
-        Returns an instance with all attributes already set.
-        """
-
-        if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)
-        elif cls.__name__ == "Square":
-            dummy = cls(1)
-        else:
-            dummy = None
-
-        dummy.update(**dictionary)
-        return dummy
-
-    @classmethod
-    def load_from_file(cls):
-        """
-        Returns a list of instances from a file.
-        """
-
-        filename = cls.__name__ + ".json"
-        try:
-            with open(filename, "r") as file:
-                json_string = file.read()
-                json_list = cls.from_json_string(json_string)
-                instances = [cls.create(**data) for data in json_list]
-                return instances
-        except FileNotFoundError:
-            return []
-
-    @classmethod
     def save_to_file_csv(cls, list_objs):
         """
         Serializes and saves instances to a CSV file.
