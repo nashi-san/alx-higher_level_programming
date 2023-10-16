@@ -5,6 +5,8 @@
 import unittest
 import pep8
 import os
+from io import StringIO
+from unittest.mock import patch
 from models.square import Square
 from models.rectangle import Rectangle
 
@@ -48,6 +50,27 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             square.size = -5
 
+    def test_area(self):
+        """Test the area method of the Square class.
+        """
+
+        square = Square(5)
+        self.assertEqual(square.area(), 25)
+
+    def test_display(self):
+        """Test the display method of the Square class.
+        """
+
+        square = Square(5)
+        expected_output = "#####\n" \
+                          "#####\n" \
+                          "#####\n" \
+                          "#####\n" \
+                          "#####\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            square.display()
+            self.assertEqual(fake_out.getvalue(), expected_output)
+
     def test_update(self):
         """
         Test the update method of the Square class.
@@ -59,9 +82,21 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square.x, 3)
         self.assertEqual(square.y, 4)
 
+    def test_update_with_args(self):
+        """Test the update method of the Square class with
+        positional arguments.
+        """
+
+        square = Square(5)
+        square.update(1, 8, 3, 4)
+        self.assertEqual(square.size, 8)
+        self.assertEqual(square.x, 3)
+        self.assertEqual(square.y, 4)
+
     def test_update_with_kwargs(self):
         """
-        Test the update method of the Square class with keyword arguments.
+        Test the update method of the Square class with keyword
+        arguments.
         """
 
         square = Square(5)
