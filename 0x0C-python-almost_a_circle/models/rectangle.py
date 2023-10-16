@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Module: rectangle
 Contains the Rectangle class.
@@ -160,3 +161,19 @@ class Rectangle(Base):
 
         return ("[Rectangle] ({}) {}/{} - {}/{}"
                 .format(self.id, self.x, self.y, self.width, self.height))
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the Rectangle instance.
+
+        Returns:
+            dict: The dictionary representation of the Rectangle.
+        """
+
+        return {
+            'x': self.x,
+            'y': self.y,
+            'id': self.id,
+            'height': self.height,
+            'width': self.width
+        }
