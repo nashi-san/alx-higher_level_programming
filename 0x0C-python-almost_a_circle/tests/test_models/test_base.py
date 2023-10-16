@@ -36,12 +36,16 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.to_json_string([]), "[]")
 
     def test_to_json_string(self):
-        """Test the to_json_string method with a list of dictionaries.
         """
-
+        Test the to_json_string method with a list of dictionaries.
+        """
         objs = [{"id": 1, "name": "object1"}, {"id": 2, "name": "object2"}]
         json_string = Base.to_json_string(objs)
-        self.assertEqual(json_string, '[{"id": 1, "name": "object1"}, {"id": 2, "name": "object2"}]')
+        expected_json = (
+            '[{"id": 1, "name": "object1"}, '
+            '{"id": 2, "name": "object2"}]'
+        )
+        self.assertEqual(json_string, expected_json)
 
     def test_from_json_string_empty(self):
         """Test the from_json_string method with an empty string.
@@ -53,9 +57,15 @@ class TestBase(unittest.TestCase):
         """Test the from_json_string method with a json string.
         """
 
-        json_string = '[{"id": 1, "name": "object1"}, {"id": 2, "name": "object2"}]'
+        json_string = (
+            '[{"id": 1, "name": "object1"}, '
+            '{"id": 2, "name": "object2"}]'
+        )
         objs = Base.from_json_string(json_string)
-        self.assertEqual(objs, [{"id": 1, "name": "object1"}, {"id": 2, "name": "object2"}])
+        self.assertEqual(
+            objs,
+            [{"id": 1, "name": "object1"}, {"id": 2, "name": "object2"}]
+        )
 
     def test_create_rectangle(self):
         """Test the create method for Rectangle class.
