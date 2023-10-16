@@ -86,6 +86,43 @@ class TestBase(unittest.TestCase):
         self.assertEqual(square.id, 1)
         self.assertEqual(square.size, 5)
 
+    def test_save_to_file(self):
+        """Test the save_to_file method.
+        """
+
+        rect1 = Rectangle(1, 2)
+        rect2 = Rectangle(3, 4)
+        square1 = Square(5)
+        square2 = Square(6)
+
+        Rectangle.save_to_file([rect1, rect2])
+        Square.save_to_file([square1, square2])
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        self.assertTrue(os.path.exists("Square.json"))
+
+    def test_load_from_file(self):
+        """Test the load_from_file method.
+        """
+
+        rect1 = Rectangle(1, 2)
+        rect2 = Rectangle(3, 4)
+        square1 = Square(5)
+        square2 = Square(6)
+
+        Rectangle.save_to_file([rect1, rect2])
+        Square.save_to_file([square1, square2])
+
+        loaded_rects = Rectangle.load_from_file()
+        loaded_squares = Square.load_from_file()
+
+        self.assertEqual(len(loaded_rects), 2)
+        self.assertEqual(len(loaded_squares), 2)
+        self.assertEqual(loaded_rects[0].width, 1)
+        self.assertEqual(loaded_rects[1].height, 4)
+        self.assertEqual(loaded_squares[0].size, 5)
+        self.assertEqual(loaded_squares[1].size, 6)
+
     def test_load_from_file_not_found(self):
         """Test the load_from_file method when the file is not found.
         """
