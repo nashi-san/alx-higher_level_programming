@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Module: square
 Contains the Square class.
@@ -37,7 +38,8 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """
-        Assigns attributes based on *args and **kwargs.
+        Assigns key/value arguments to the attributes of the
+        Square instance.
         """
 
         if len(args) > 0:
@@ -63,3 +65,15 @@ class Square(Rectangle):
 
         return ("[Square] ({}) {}/{} - {}"
                 .format(self.id, self.x, self.y, self.width))
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the Square instance.
+        """
+
+        return {
+            'id': self.id,
+            'x': self.x,
+            'size': self.size,
+            'y': self.y
+        }
