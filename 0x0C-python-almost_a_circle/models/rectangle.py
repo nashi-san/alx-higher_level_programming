@@ -165,9 +165,6 @@ class Rectangle(Base):
     def to_dictionary(self):
         """
         Returns the dictionary representation of the Rectangle instance.
-
-        Returns:
-            dict: The dictionary representation of the Rectangle.
         """
 
         return {
