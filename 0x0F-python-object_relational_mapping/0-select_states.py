@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-# This script lists all states from the database hbtn_0e_0_usa
-# in ascending order
-# the script connect to a MySQL server running on localhost at port 3306
+""" This script lists all states from the database hbtn_0e_0_usa
+in ascending order
+the script connect to a MySQL server running on localhost at port 3306"""
 import sys
 import MySQLdb
 
