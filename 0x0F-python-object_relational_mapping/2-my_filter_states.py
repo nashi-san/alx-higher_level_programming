@@ -20,7 +20,7 @@ if __name__ == "__main__":
                          db=database,
                          port=3306)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE \
+    cur.execute("SELECT DISTINCT * FROM states WHERE \
                 name = %s ORDER BY id", (state_name,))
 
     rows = cur.fetchall()
