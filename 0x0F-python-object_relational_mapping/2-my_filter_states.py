@@ -20,8 +20,9 @@ if __name__ == "__main__":
                          db=database,
                          port=3306)
     cur = db.cursor()
-    cur.execute("SELECT id, name FROM states WHERE \
-                name = %s ORDER BY id", (state_name,))
+    query = "SELECT * FROM states WHERE name = '{}' ".format(state_name)
+    query += "ORDER BY id"
+    cur.execute(query)
 
     rows = cur.fetchall()
     for row in rows:
