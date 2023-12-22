@@ -25,10 +25,7 @@ if __name__ == "__main__":
         .order_by(State.id)\
         .all()
 
-    if not states_with_a:
-        print("Nothing")
-    else:
-        for state in states_with_a:
-            print(f"{state.id}: {state.name}")
+    for state in states_with_a:
+        print(f"{state.id}: {state.name}")
 
     session.close()
