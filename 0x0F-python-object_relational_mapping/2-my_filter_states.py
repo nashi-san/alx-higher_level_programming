@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
-This script displays all values in the states table of hbtn_0e_0_usa
+This script displays all values in the states
+table of hbtn_0e_0_usa
 where name matches the argument.
 """
+
 import sys
 import MySQLdb
-
 
 if __name__ == "__main__":
     username = sys.argv[1]
@@ -20,7 +21,7 @@ if __name__ == "__main__":
                          port=3306)
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE \
-                name LIKE %s ORDER BY id", (state_name,))
+                name = %s ORDER BY id", (state_name,))
 
     rows = cur.fetchall()
     for row in rows:
