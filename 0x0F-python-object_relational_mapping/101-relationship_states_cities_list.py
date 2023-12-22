@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """
-lists all State objects, and corresponding City objects, contained in...
-"""
+lists all State objects, and corresponding City objects, contained in..."""
 
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 from relationship_state import Base, State
 from relationship_city import City
 
@@ -17,8 +16,7 @@ if __name__ == "__main__":
         "@localhost:3306/" + db_name
     engine = create_engine(engine_url)
     Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    session = Session(engine)
     
     for state in session.query(State):
         print("{}: {}".format(state.id, state.name))
