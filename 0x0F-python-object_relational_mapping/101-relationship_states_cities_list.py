@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-lists all State objects, and corresponding City objects, contained in..."""
+lists all State objects, and corresponding City objects, contained in...
+"""
 
 import sys
 from sqlalchemy import create_engine
@@ -17,7 +18,7 @@ if __name__ == "__main__":
     engine = create_engine(engine_url, pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    
+ 
     for state in session.query(State):
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
