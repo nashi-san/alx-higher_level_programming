@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-lists all State objects, and corresponding City objects, contained in
-the database hbtn_0e_101_usa
+lists all State objects, and corresponding City objects, contained in...
 """
 
 import sys
@@ -20,8 +19,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).join(State.cities).order_by(State.id, City.id).all()
-    for state in states:
+    
+    for state in session.query(State):
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
             print("\t{}: {}".format(city.id, city.name))
