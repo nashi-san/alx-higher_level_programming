@@ -20,7 +20,7 @@ if __name__ == "__main__":
                          db=database,
                          port=3306)
     cur = db.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ".format(state_name)
+    query = "SELECT * FROM states WHERE BINARY name = '{}' ".format(state_name)
     query += "ORDER BY id"
     cur.execute(query)
 
