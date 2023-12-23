@@ -12,13 +12,15 @@ from relationship_state import Base, State
 if __name__ == "__main__":
 
     username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
-    engine_url = "mysql+mysqldb://" + username + ":" + password + \
-        "@localhost:3306/" + db_name
+    engine_url = f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}"
     engine = create_engine(engine_url, pool_pre_ping=True)
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
+    states = session.query(State).order_by(State.id).all()
 
-    for state in session.query(State).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+    for state in states:
+        print(f"{state.id}: {state.name}")
+        if state.cities:
+            for city in state.cities:
+                print(f"\t{city.id}: {city.name}")
