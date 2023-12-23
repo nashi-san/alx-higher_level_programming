@@ -15,10 +15,13 @@ if __name__ == "__main__":
     engine_url = f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}"
     engine = create_engine(engine_url, pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    session = Session(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    for state in session.query(State):
-        print('{}: {}'.format(state.id, state.name))
+    states = session.query(State).order_by(State.id).all()
+
+    for state in states:
+        print(f"{state.id}: {state.name}")
         for city in state.cities:
-            print('\t{}: {}'.format(city.id, city.name))
+            print(f"\t{city.id}: {city.name}")
     session.close()
