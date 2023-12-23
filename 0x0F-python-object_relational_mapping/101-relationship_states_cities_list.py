@@ -21,6 +21,5 @@ if __name__ == "__main__":
 
     for state in states:
         print(f"{state.id}: {state.name}")
-        if state.cities:
-            for city in state.cities:
-                print(f"\t{city.id}: {city.name}")
+        for city in state.cities:
+            print(f"\t{city.id}: {city.name}")
