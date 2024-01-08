@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+
+"""
+Python script that fetches https://alx-intranet.hbtn.io/status
+"""
+
+import requests
+
+
+if __name__ == "__main__":
+    req = requests.get(url)
+    body = req.content
+    print("Body response:")
+    print("\t- type: {}".format(type(body)))
+    print("\t- content: {}".format(body))
