@@ -12,7 +12,8 @@ import requests
 if __name__ == "__main__":
     url = "https://alx-intranet.hbtn.io/status"
     req = requests.get(url)
-    body = req.content
+    req.encoding = "utf-8"
+    body = req.text
     print("Body response:")
     print("\t- type: {}".format(type(body)))
     print("\t- content: {}".format(body))
