@@ -1,6 +1,10 @@
 #include <Python.h>
 #include <stdio.h>
-
+/**
+ * print_python_list - Prints information about a Python list
+ * @p: Pointer to the Python list object
+ * Return: No return
+ */
 void print_python_list(PyObject *p)
 {
 	PyListObject *list;
@@ -26,7 +30,11 @@ void print_python_list(PyObject *p)
 		printf("Element %ld: %s\n", i, type);
 	}
 }
-
+/**
+ * print_python_bytes - Prints information about a Python bytes object
+ * @p: Pointer to the Python bytes object
+ * Return: No return
+ */
 void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *bytes;
@@ -53,6 +61,11 @@ void print_python_bytes(PyObject *p)
 	}
 	printf("\n");
 }
+/**
+ * print_python_float - Prints information about a Python float object
+ * @p: Pointer to the Python float object
+ * Return: No return
+ */
 void print_python_float(PyObject *p)
 {
 	PyFloatObject *f;
