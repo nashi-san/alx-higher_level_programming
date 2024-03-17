@@ -9,6 +9,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from relationship_state import Base, State
 from relationship_city import City
 
+
 if __name__ == "__main__":
 
     username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
